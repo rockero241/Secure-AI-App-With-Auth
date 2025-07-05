@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from datetime import datetime, timedelta
 from . import models
 
-def fet_challenge_quota(db: Session, user_id: str):
+def get_challenge_quota(db: Session, user_id: str):
     # Retrieve the first challenge quota record for a specific user.
     return (db.query(models.ChallengeQuota)
             .filter(models.ChallengeQuota.user_id == user_id)

@@ -1,6 +1,6 @@
 import "react"
 import {useState, useEffect} from "react"
-import {MCQChallenge} from "./MCQChallenge.jsx"
+import {MCQChallenge} from "./MCQChallenge.jsx";
 import {useApi} from "../utils/api.js"
 
 export function ChallengeGenerator() {
@@ -30,7 +30,7 @@ export function ChallengeGenerator() {
 
         try {
             const data = await makeRequest("generate-challenge", {
-                method : "POST",
+                method: "POST",
                 body: JSON.stringify({difficulty})
                 }
             )
@@ -39,13 +39,13 @@ export function ChallengeGenerator() {
         } catch (err) {
             setError(err.message || "Failed to generate challenge.")
         } finally {
-                setIsLoading(false)
+            setIsLoading(false)
         }
     }
 
     const getNextResetTime = () => {
-        if (!quota?.last_reset_date) return null
-        const resetDate = Date.parse(quota.last_reset_date)
+        if (!quota?.last_reset_data) return null
+        const resetDate = new Date(quota.last_reset_data)
         resetDate.setHours(resetDate.getHours() + 24)
         return resetDate
     }
@@ -56,12 +56,11 @@ export function ChallengeGenerator() {
         <div className="quota-display">
             <p>Challenges remaining today: {quota?.quota_remaining || 0}</p>
             {quota?.quota_remaining === 0 && (
-                <p>Next reset: {getNextResetTime()?.toLocaleString}</p>
+                <p>Next reset: {getNextResetTime()?.toLocaleString()}</p>
             )}
-
         </div>
         <div className="difficulty-selector">
-            <label htmlFor="difficultry">Select Difficulty</label>
+            <label htmlFor="difficulty">Select Difficulty</label>
             <select
                 id="difficulty"
                 value={difficulty}
@@ -76,7 +75,7 @@ export function ChallengeGenerator() {
 
         <button
             onClick={generateChallenge}
-            disabled={isLoading | quota?.quota_remaining === 0}
+            disabled={isLoading || quota?.quota_remaining === 0}
             className="generate-button"
         >
             {isLoading ? "Generating..." : "Generate Challenge"}

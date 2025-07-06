@@ -21,5 +21,6 @@ def authenticate_and_get_user_details(request):
 
         user_id = request_state.payload.get("sub")
 
+        return {"user_id": user_id}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

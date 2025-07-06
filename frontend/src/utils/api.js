@@ -8,7 +8,7 @@ export const useApi = () => {
         const defaultOptions = {
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`,
+                "Authorization": `Bearer ${token}`
             }
         }
 
@@ -20,15 +20,13 @@ export const useApi = () => {
         if (!response.ok) {
             const errorData = await response.json().catch(() => null)
             if (response.status === 429) {
-                throw new Error("Unauthorized") {
-                    throw new Error("Daily quota exceeded")
-                }
-                throw new Error(errorData?.detail || "An error ocurred")
+                throw new Error("Daily quota exceeded")
             }
-
-            return response.json()
+            throw new Error(errorData?.detail || "An error occurred")
         }
 
-        return {makeRequest}
+        return response.json()
     }
+
+    return {makeRequest}
 }

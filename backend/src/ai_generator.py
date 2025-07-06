@@ -46,7 +46,7 @@ def generate_challenge_with_ai(difficulty: str) -> Dict[str, Any]:
             if field not in challenge_data:
                 raise ValueError(f"Missing required field: {field}")
 
-            return challenge_data
+        return challenge_data
 
     except Exception as e:
         print(e)

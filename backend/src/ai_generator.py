@@ -2,6 +2,9 @@ import os
 import json
 from openai import OpenAI
 from typing import Dict, Any
+from dotenv import load_dotenv
+
+load_dotenv()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 

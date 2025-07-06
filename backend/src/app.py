@@ -1,7 +1,6 @@
 from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
-
-clerk_skd = Clerk(bearer_auth=os.getenv("CLERK_SECRET_KEY"))
+from .routes import challenge
 
 app = FastAPI()
 
@@ -12,3 +11,5 @@ app.add_middleware(
    allow_methods=["*"],
    allowe_headers=["*"]
 )
+
+app.include_router(challenge.router, prefix="/api")

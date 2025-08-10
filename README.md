@@ -8,7 +8,7 @@ An intelligent, full-stack web application that generates coding challenges usin
 
 ## 🚀 Overview
 
-This project is a dynamic, AI-powered coding challenge generator designed to help users practice coding in real-time. Built with:
+Dynamic, AI-powered coding challenge generator designed to help users practice coding in real-time. Built with:
 
 - 🧠 **OpenAI** for intelligent challenge generation  
 - 🔐 **Clerk** for seamless authentication  

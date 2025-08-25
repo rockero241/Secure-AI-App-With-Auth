@@ -1,6 +1,6 @@
 # 🧠 AI-Powered Coding Challenge Generator
 
-An intelligent, full-stack web application that generates coding challenges using AI — built with modern tech from front to back.  
+An intelligent, full-stack web application that generates coding challenges using AI, built with modern tech from front to back.  
 
 > ⚡️ React + FastAPI + OpenAI + Clerk Auth + SQLAlchemy
 
